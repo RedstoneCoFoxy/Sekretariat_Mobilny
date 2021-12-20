@@ -1,4 +1,34 @@
 <resources>
     <string name="app_name">Sekretariat_Mobilny</string>
     <string name="StrngZaladuj">Załaduj</string>
+    <string name="StrngSzukajCheck">Szukaj ?</string>
+    <string name="StrngSortujCheck">Sortuj?</string>
+    <string name="StrngOdswiez">Odśwież</string>
+    <string name="StrngGotowe">Gotowe</string>
+    <string name="StrngFiltr">Filtr</string>
+    <string-array name="OpcjeWyboruPol">
+            <item>Imie</item>
+            <item>DrugieImie</item>
+            <item>Nazwisko</item>
+            <item>NazwiskoPaniejskie</item>
+            <item>ImieOjca</item>
+            <item>ImieMatki</item>
+            <item>Data Urodzenia</item>
+            <item>Pesel</item>
+            <item>Plec</item>
+            <item>Klasa*</item>
+            <item>Grupy*</item>
+            <item>Wychowawstwo</item>
+            <item>Przedmioty</item>
+            <item>Zajecia</item>
+            <item>Data Zatrudnienia</item>
+    </string-array>
+    <string-array name="OpcjeWyboruSzukania">
+        <item>Zawiera</item>
+        <item>Równe</item>
+        <item>Kończy się na</item>
+        <item>Rozpoczyna się na</item>
+        <item>Większe od</item>
+        <item>Mniejsze od</item>
+    </string-array>
 </resources>

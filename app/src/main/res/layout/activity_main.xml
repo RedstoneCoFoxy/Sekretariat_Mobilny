@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/Main_Widok"
-        android:layout_width="952dp"
-        android:layout_height="367dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:background="@color/purpleSoft"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,18 +17,161 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.328" />
 
     <Button
         android:id="@+id/Main_ButtoOtworz"
         android:layout_width="131dp"
         android:layout_height="49dp"
         android:text="@string/StrngZaladuj"
-        app:layout_constraintBottom_toTopOf="@+id/Main_Widok"
+        app:layout_constraintBottom_toTopOf="@+id/main_ButtoOdswiez"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/Main_ButtoGotowe"
+        android:layout_width="117dp"
+        android:layout_height="47dp"
+        android:text="@string/StrngGotowe"
+        app:layout_constraintBottom_toBottomOf="@+id/Main_ListSortujPoPolu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Main_ListSortujPoPolu"
+        app:layout_constraintTop_toBottomOf="@+id/Main_RadioGroup"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/main_ButtoOdswiez"
+        android:layout_width="131dp"
+        android:layout_height="49dp"
+        android:text="@string/StrngOdswiez"
+        app:layout_constraintBottom_toTopOf="@+id/Main_Widok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.743" />
+
+    <CheckBox
+        android:id="@+id/Main_SzukajCheck"
+        android:layout_width="90dp"
+        android:layout_height="37dp"
+        android:background="@color/purpleSoft"
+        android:foregroundTint="#FFFFFF"
+        android:text="@string/StrngSzukajCheck"
+        app:layout_constraintBottom_toTopOf="@+id/Main_Widok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toEndOf="@+id/Main_ButtoOtworz"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <CheckBox
+        android:id="@+id/main_SortujCheck"
+        android:layout_width="143dp"
+        android:layout_height="37dp"
+        android:background="@color/purpleSoft"
+        android:text="@string/StrngSortujCheck"
+        app:layout_constraintBottom_toTopOf="@+id/Main_Widok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toEndOf="@+id/Main_SzukajCheck"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202" />
+
+    <Spinner
+        android:id="@+id/Main_ListSzukajPoPolu"
+        android:layout_width="147dp"
+        android:layout_height="45dp"
+        android:background="@color/purpleSoft"
+        android:entries="@array/OpcjeWyboruPol"
+        app:layout_constraintBottom_toBottomOf="@+id/main_ButtoOdswiez"
+        app:layout_constraintEnd_toEndOf="@+id/Main_SzukajCheck"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Main_SzukajCheck"
+        app:layout_constraintTop_toBottomOf="@+id/Main_SzukajCheck"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/Main_ListSortujPoPolu"
+        android:layout_width="167dp"
+        android:layout_height="45dp"
+        android:background="@color/purpleSoft"
+        android:entries="@array/OpcjeWyboruPol"
+        app:layout_constraintBottom_toBottomOf="@+id/main_ButtoOdswiez"
+        app:layout_constraintEnd_toEndOf="@+id/main_SortujCheck"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/main_SortujCheck"
+        app:layout_constraintTop_toBottomOf="@+id/Main_SzukajCheck"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/Main_ListSzukajSposob"
+        android:layout_width="146dp"
+        android:layout_height="45dp"
+        android:background="@color/purpleSoft"
+        android:entries="@array/OpcjeWyboruSzukania"
+        app:layout_constraintBottom_toBottomOf="@+id/Main_ListSzukajPoPolu"
+        app:layout_constraintEnd_toStartOf="@+id/main_SortujCheck"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toStartOf="@+id/Main_ListSzukajPoPolu"
+        app:layout_constraintTop_toTopOf="@+id/Main_ListSzukajPoPolu"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <RadioGroup
+        android:id="@+id/Main_RadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/Main_ListSortujPoPolu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/main_SortujCheck"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <RadioButton
+            android:id="@+id/Main_RadioASC"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="16dp"
+            android:checked="true"
+            android:text="ASC"
+            app:layout_constraintEnd_toStartOf="@+id/main_RadioDESC"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/main_SortujCheck"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/main_RadioDESC"
+            android:layout_width="70dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="16dp"
+            android:text="DESC"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.721"
+            app:layout_constraintStart_toEndOf="@+id/main_SortujCheck"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/Main_FiltrBox"
+        android:layout_width="177dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/StrngFiltr"
+        app:layout_constraintBottom_toTopOf="@+id/Main_ListSzukajSposob"
+        app:layout_constraintEnd_toEndOf="@+id/Main_ListSzukajSposob"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Main_SzukajCheck"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
