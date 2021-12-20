@@ -142,23 +142,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        lateinit var TableUczen: kotlin.Array<Uczen?>
-        lateinit var TableNauczyciel: kotlin.Array<Nauczyciel?>
-        lateinit var TablePracownik: kotlin.Array<Pracownik?>
+        var TableUczen: kotlin.Array<Uczen?> = arrayOfNulls(0)
+        var TableNauczyciel: kotlin.Array<Nauczyciel?> = arrayOfNulls(0)
+        var TablePracownik: kotlin.Array<Pracownik?> = arrayOfNulls(0)
 
         fun Update_Widok(TempUczen: kotlin.Array<Uczen?>,TempNauczyciel: kotlin.Array<Nauczyciel?> ,TempPracownik: kotlin.Array<Pracownik?> )
         {
             TextView_Widok.text = "";
-            if (TempUczen.size == 0) {TextView_Widok.text = TextView_Widok.text.toString() + "Brak rekordów Uczniów\n";}else{
+            if (TempUczen.size <= 0) {TextView_Widok.text = TextView_Widok.text.toString() + "Brak rekordów Uczniów\n";}else{
                 for (i in 0 until TempUczen.size) {
 
                 }}
-            if (TempNauczyciel.size == 0) {TextView_Widok.text = TextView_Widok.text.toString() + "Brak rekordów Nauczycieli\n"}else{
+            if (TempNauczyciel.size <= 0) {TextView_Widok.text = TextView_Widok.text.toString() + "Brak rekordów Nauczycieli\n"}else{
                 for (i in 0 until TempNauczyciel.size)
                 {
 
                 }}
-            if (TempPracownik.size == 0) {TextView_Widok.text = TextView_Widok.text.toString() + "Brak rekordów Pracowników\n"}else{
+            if (TempPracownik.size <= 0) {TextView_Widok.text = TextView_Widok.text.toString() + "Brak rekordów Pracowników\n"}else{
                 for (i in 0 until TempPracownik.size)
                 {
 
@@ -169,7 +169,7 @@ class MainActivity : AppCompatActivity() {
         {
             if (UczenTemp.size + NauczycielTemp.size + PracownikTemp.size > 0)
             {
-                var zmienne: kotlin.Array<String?> = arrayOfNulls<String>(0)
+                var zmienne = arrayOf("")
                 for (U in 0 until UczenTemp.size)
                 {
                     UczenTemp?.let{
@@ -237,11 +237,10 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                if (Sortuj_RadioMalejaco.IsChecked == true)
+                zmienne.sortDescending()
+                if (false)
                 {
-                    zmienne.sortByDescending { list -> list.size }
-                }else{
-                    zmienne.sortByAscending { list -> list.size }
+
                 }
                 TextView_Widok.text = "";
                 for (U in 0 until zmienne.size)
@@ -253,9 +252,9 @@ class MainActivity : AppCompatActivity() {
                     var String: String = zmienne[U]
                     if (String.endsWith("U"))
                     {
-                        var i: Int = String.subSequence(String.Length - 2,String.Length - 1).toInt()
+                        var i: Int = String.subSequence(String.length - 2,String.length - 1).toString().toInt()
                         //MEGA switch sprawdzający wszystkie mozliwe pola jakie uzytkownik mogl wybrac w sortowaniu
-                        var StringB: String = zmienne[U].subSequence(0,String.Length - 2)
+                        var StringB: String = zmienne[U].subSequence(0,String.length - 2).toString()
                         when(WybranePole)
                         {
                             0->
@@ -317,9 +316,9 @@ class MainActivity : AppCompatActivity() {
                     }
                     if (String.endsWith("N"))
                     {
-                        var i: Int = String.subSequence(String.Length - 2,String.Length - 1).toInt()
+                        var i: Int = String.subSequence(String.length - 2,String.length - 1).toString().toInt()
                         //MEGA switch sprawdzający wszystkie mozliwe pola jakie uzytkownik mogl wybrac w sortowaniu
-                        var StringB: String = zmienne[U].subSequence(0,String.Length - 2)
+                        var StringB: String = zmienne[U].subSequence(0,String.length - 2).toString()
                         when(WybranePole)
                         {
                             0->
@@ -392,9 +391,9 @@ class MainActivity : AppCompatActivity() {
                     }
                     if (String.endsWith("P"))
                     {
-                        var i: Int = String.subSequence(String.Length - 2,String.Length - 1).toInt()
+                        var i: Int = String.subSequence(String.length - 2,String.length - 1).toString().toInt()
                         //MEGA switch sprawdzający wszystkie mozliwe pola jakie uzytkownik mogl wybrac w sortowaniu
-                        var StringB: String = zmienne[U].subSequence(0,String.Length - 2)
+                        var StringB: String = zmienne[U].subSequence(0,String.length - 2).toString()
                         when(WybranePole)
                         {
                             0->
