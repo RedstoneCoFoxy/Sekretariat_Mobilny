@@ -20,11 +20,11 @@
         app:layout_constraintVertical_bias="0.328" />
 
     <Button
-        android:id="@+id/Main_ButtoOtworz"
+        android:id="@+id/Main_ButtonOtworz"
         android:layout_width="131dp"
         android:layout_height="49dp"
         android:text="@string/StrngZaladuj"
-        app:layout_constraintBottom_toTopOf="@+id/main_ButtoOdswiez"
+        app:layout_constraintBottom_toTopOf="@+id/main_ButtonOdswiez"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/Main_ButtoGotowe"
+        android:id="@+id/Main_ButtonGotowe"
         android:layout_width="117dp"
         android:layout_height="47dp"
         android:text="@string/StrngGotowe"
@@ -41,10 +41,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/Main_ListSortujPoPolu"
         app:layout_constraintTop_toBottomOf="@+id/Main_RadioGroup"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:enabled="false"
+        />
 
     <Button
-        android:id="@+id/main_ButtoOdswiez"
+        android:id="@+id/main_ButtonOdswiez"
         android:layout_width="131dp"
         android:layout_height="49dp"
         android:text="@string/StrngOdswiez"
@@ -65,7 +67,7 @@
         app:layout_constraintBottom_toTopOf="@+id/Main_Widok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toEndOf="@+id/Main_ButtoOtworz"
+        app:layout_constraintStart_toEndOf="@+id/Main_ButtonOtworz"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.213" />
 
@@ -88,12 +90,13 @@
         android:layout_height="45dp"
         android:background="@color/purpleSoft"
         android:entries="@array/OpcjeWyboruPol"
-        app:layout_constraintBottom_toBottomOf="@+id/main_ButtoOdswiez"
+        app:layout_constraintBottom_toBottomOf="@+id/main_ButtonOdswiez"
         app:layout_constraintEnd_toEndOf="@+id/Main_SzukajCheck"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/Main_SzukajCheck"
         app:layout_constraintTop_toBottomOf="@+id/Main_SzukajCheck"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:enabled="false"/>
 
     <Spinner
         android:id="@+id/Main_ListSortujPoPolu"
@@ -101,12 +104,13 @@
         android:layout_height="45dp"
         android:background="@color/purpleSoft"
         android:entries="@array/OpcjeWyboruPol"
-        app:layout_constraintBottom_toBottomOf="@+id/main_ButtoOdswiez"
+        app:layout_constraintBottom_toBottomOf="@+id/main_ButtonOdswiez"
         app:layout_constraintEnd_toEndOf="@+id/main_SortujCheck"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/main_SortujCheck"
         app:layout_constraintTop_toBottomOf="@+id/Main_SzukajCheck"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:enabled="false"/>
 
     <Spinner
         android:id="@+id/Main_ListSzukajSposob"
@@ -119,7 +123,8 @@
         app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="@+id/Main_ListSzukajPoPolu"
         app:layout_constraintTop_toTopOf="@+id/Main_ListSzukajPoPolu"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:enabled="false"/>
 
 
     <RadioGroup
@@ -132,7 +137,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/main_SortujCheck"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="1.0"
+        android:enabled="false">
 
         <RadioButton
             android:id="@+id/Main_RadioASC"
@@ -172,6 +178,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/Main_SzukajCheck"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:enabled="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

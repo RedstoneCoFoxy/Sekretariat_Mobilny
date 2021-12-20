@@ -1,31 +1,14 @@
 package com.example.sekretariat_mobilny
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.CheckBox
+import android.widget.Spinner
+import android.widget.RadioButton
+import android.widget.EditText
+import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
-import android.content.Intent
-import android.app.Activity
-import android.R.string
-import android.R.string.no
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +16,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val TextView_Widok: TextView = findViewById(R.id.Main_Widok)
+        val Button_OtworzPlik: Button = findViewById(R.id.Main_ButtonOtworz)
+        val Button_Gotowe: Button = findViewById(R.id.Main_ButtonGotowe)
+        val Button_OdswiezWidok: Button = findViewById(R.id.main_ButtonOdswiez)
+
+        val CheckSzukaj: CheckBox = findViewById(R.id.Main_SzukajCheck)
+        val CheckSortuj: CheckBox = findViewById(R.id.main_SortujCheck)
+
+        val Spinner_SzukajPoPolu: Spinner = findViewById(R.id.Main_ListSzukajPoPolu)
+        val Spinner_SzukajSposob: Spinner = findViewById(R.id.Main_ListSzukajSposob)
+        val Spinner_SortujPoPolu: Spinner = findViewById(R.id.Main_ListSortujPoPolu)
+
+        val RadioAscending: RadioButton = findViewById(R.id.Main_RadioASC)
+        val RadioDescending: RadioButton = findViewById(R.id.main_RadioDESC)
+        val RadioGroup: RadioGroup = findViewById(R.id.Main_RadioGroup)
+        val FiltrTextBox: EditText = findViewById(R.id.Main_FiltrBox)
+
         //deklaracja obiektów poszcególnych osób (przekopiowana z desktopowej wersji programu)
         class Uczen constructor() {
             var Rodzaj: String = "U"
@@ -238,9 +237,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 zmienne.sortDescending()
-                if (false)
+                if (RadioAscending.isChecked)
                 {
-
+                    zmienne.reverse()
                 }
                 TextView_Widok.text = "";
                 for (U in 0 until zmienne.size)
@@ -462,7 +461,28 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val Button_OtworzPlik: Button = findViewById(R.id.Main_ButtoOtworz)
+        CheckSzukaj.setOnClickListener{
+            if(CheckSzukaj.isChecked){
+                Spinner_SzukajPoPolu.isEnabled=true
+                Spinner_SzukajSposob.isEnabled=true
+                FiltrTextBox.isEnabled=true
+            }else{
+                Spinner_SzukajPoPolu.isEnabled=false
+                Spinner_SzukajSposob.isEnabled=false
+                FiltrTextBox.isEnabled=false
+            }
+        }
+        CheckSortuj.setOnClickListener{
+            if(CheckSzukaj.isChecked){
+                RadioGroup.isEnabled=true
+                Spinner_SortujPoPolu.isEnabled=true
+            }else{
+                RadioGroup.isEnabled=false
+                Spinner_SortujPoPolu.isEnabled=false
+            }
+        }
+
+
         Button_OtworzPlik.setOnClickListener {
 
             Update_Widok(TableUczen,TableNauczyciel,TablePracownik);
