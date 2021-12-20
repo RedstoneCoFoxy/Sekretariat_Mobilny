@@ -8,8 +8,9 @@
 
     <TextView
         android:id="@+id/Main_Widok"
-        android:layout_width="785dp"
-        android:layout_height="330dp"
+        android:layout_width="952dp"
+        android:layout_height="367dp"
+        android:layout_marginStart="4dp"
         android:background="@color/purpleSoft"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,14 +21,14 @@
 
     <Button
         android:id="@+id/Main_ButtoOtworz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="131dp"
+        android:layout_height="49dp"
         android:text="@string/StrngZaladuj"
         app:layout_constraintBottom_toTopOf="@+id/Main_Widok"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintVertical_bias="0.111" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
