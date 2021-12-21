@@ -171,7 +171,6 @@ class MainActivity : AppCompatActivity() {
                 var zmienne = arrayOf("")
                 for (U in 0 until UczenTemp.size)
                 {
-                    UczenTemp?.let{
                     var temp= arrayOf("")
                     when(WybranePole) //MEGA switch sprawdzający wszystkie mozliwe pola jakie uzytkownik mogl wybrac w sortowaniu
                     {
@@ -188,11 +187,9 @@ class MainActivity : AppCompatActivity() {
                         10-> temp[0] = UczenTemp[U]?.Grupy + U.toString() + "U"//grupy
                     }
                     zmienne = zmienne.plus(elements = temp)
-                    }
                 }
                 for (U in 0 until NauczycielTemp.size)
                 {
-                    NauczycielTemp?.let {
                         var temp = arrayOf("")
                         when (WybranePole) //MEGA switch sprawdzający wszystkie mozliwe pola jakie uzytkownik mogl wybrac w sortowaniu
                         {
@@ -212,10 +209,8 @@ class MainActivity : AppCompatActivity() {
                         }
                         zmienne = zmienne.plus(elements = temp)
                     }
-                }
                 for (U in 0 until PracownikTemp.size)
                 {
-                    PracownikTemp?.let{
                     var temp= arrayOf("")
                     when(WybranePole) //MEGA switch sprawdzający wszystkie mozliwe pola jakie uzytkownik mogl wybrac w sortowaniu
                     {
@@ -233,7 +228,6 @@ class MainActivity : AppCompatActivity() {
                         16-> temp[0] = PracownikTemp[U]?.Opis + U.toString() + "P"//Opis
                     }
                     zmienne = zmienne.plus(elements = temp)
-                    }
                 }
 
                 zmienne.sortDescending()
@@ -603,6 +597,153 @@ class MainActivity : AppCompatActivity() {
                 {
                     Update_Widok(TempUczen,TempNauczyciel,TempPracownik);
                 }
+            }
+        }
+
+        fun ZaladujRekordDoBazy(linia: String)
+        {
+            //wszystkie dzialaja na tej samej zasadzie, roznią się jednyie iloscią pól które muszą prowadzic i do której tabeli
+            //najpierw sprawdza do której tabeli idzie U, N, P
+            //potem pierwsza czesc od początku do specjalnego znaku ( Ø ), jest wkladana, usuwa ten segment i idzie do następnego i tak az do konća
+            var line:String = linia
+            if (line.startsWith("U")){
+                var TempTableUczen: Array<Uczen?> = arrayOfNulls(0)
+                var Temp : Uczen = Uczen()
+
+                Temp.Rodzaj = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0,line.indexOf("Ø")+1);
+
+                Temp.Imie = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø")+1);
+
+                Temp.DrugieImie = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Nazwisko = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.NazwiskoPaniejskie = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.ImieOjca = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.ImieMatki = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.DataUrodzenia = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Pesel = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Plec = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+
+                Temp.Klasa = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Grupy = line.substring(0, line.length-1);
+
+                TempTableUczen[0] = Temp;
+                TableUczen = TableUczen.plus(elements = TempTableUczen)
+            }
+            if (line.startsWith("N"))
+            {
+
+                var TempTableNauczyciel: Array<Nauczyciel?> = arrayOfNulls(0)
+                var Temp : Nauczyciel = Nauczyciel()
+
+                Temp.Rodzaj = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Imie = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.DrugieImie = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Nazwisko = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.NazwiskoPaniejskie = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.ImieOjca = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.ImieMatki = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.DataUrodzenia = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Pesel = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Plec = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.WychowawcaKlasa = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.PrzedmiotyNauczane = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Zajecia = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.DataZatrudnienia = line.substring(0, line.length-1);
+
+                TempTableNauczyciel[0] = Temp;
+                TableNauczyciel = TableNauczyciel.plus(elements = TempTableNauczyciel)
+            }
+            if (line.startsWith("P"))
+            {
+                var TempTablePracownik: Array<Pracownik?> = arrayOfNulls(0)
+                var Temp : Pracownik = Pracownik()
+
+                Temp.Rodzaj = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Imie = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.DrugieImie = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Nazwisko = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.NazwiskoPaniejskie = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.ImieOjca = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.ImieMatki = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.DataUrodzenia = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Pesel = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Plec = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Etat = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.Opis = line.substring(0, line.indexOf("Ø"));
+                line = line.substring(0, line.indexOf("Ø") + 1);
+
+                Temp.DataZatrudnienia = line.substring(0, line.length-1);
+
+                TempTablePracownik[0] = Temp;
+                TablePracownik = TablePracownik.plus(elements = TempTablePracownik)
             }
         }
 
