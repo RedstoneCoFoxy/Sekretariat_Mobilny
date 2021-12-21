@@ -164,8 +164,9 @@ class MainActivity : AppCompatActivity() {
                 }}
         }
 
-        fun Sortuj(UczenTemp: Array<Uczen?>,NauczycielTemp: Array<Nauczyciel?> ,PracownikTemp: Array<Pracownik?>, WybranePole: Int) //funkcja sortująca
+        fun Sortuj(UczenTemp: Array<Uczen?>,NauczycielTemp: Array<Nauczyciel?> ,PracownikTemp: Array<Pracownik?>) //funkcja sortująca
         {
+            var WybranePole: Int= Spinner_SortujPoPolu.selectedItemPosition-1
             if (UczenTemp.size + NauczycielTemp.size + PracownikTemp.size > 0)
             {
                 var zmienne = arrayOf("")
@@ -591,7 +592,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (CheckSortuj.isChecked) {
 
-                    Sortuj(TempUczen, TempNauczyciel, TempPracownik, 1);
+                    Sortuj(TempUczen, TempNauczyciel, TempPracownik);
                 }
                 else
                 {
@@ -756,15 +757,31 @@ class MainActivity : AppCompatActivity() {
             }
         }
         CheckSortuj.setOnClickListener{
-            if(CheckSzukaj.isChecked){
+            if(CheckSortuj.isChecked){
                 RadioGroup.isEnabled=true
+                RadioAscending.isEnabled=true
+                RadioDescending.isEnabled=true
                 Spinner_SortujPoPolu.isEnabled=true
             }else{
                 RadioGroup.isEnabled=false
+                RadioAscending.isEnabled=false
+                RadioDescending.isEnabled=false
                 Spinner_SortujPoPolu.isEnabled=false
             }
         }
 
+        Button_OdswiezWidok.setOnClickListener {
+            Update_Widok(TableUczen,TableNauczyciel,TablePracownik)
+        }
+        Button_Gotowe.setOnClickListener {
+            if(CheckSzukaj.isChecked){
+                Szukaj()
+            }else{
+                if(CheckSortuj.isChecked){
+                    Sortuj(TableUczen,TableNauczyciel,TablePracownik)
+                }
+            }
+        }
 
         Button_OtworzPlik.setOnClickListener {
 
