@@ -164,7 +164,7 @@ class MainActivity : AppCompatActivity() {
                 }}
         }
 
-        fun Sortuj(UczenTemp: ArrayList<Uczen>,NauczycielTemp: ArrayList<Nauczyciel> ,PracownikTemp: ArrayList<Pracownik>, WybranePole: Int) //funkcja sortująca
+        fun Sortuj(UczenTemp: Array<Uczen?>,NauczycielTemp: Array<Nauczyciel?> ,PracownikTemp: Array<Pracownik?>, WybranePole: Int) //funkcja sortująca
         {
             if (UczenTemp.size + NauczycielTemp.size + PracownikTemp.size > 0)
             {
@@ -175,17 +175,17 @@ class MainActivity : AppCompatActivity() {
                     var temp= arrayOf("")
                     when(WybranePole) //MEGA switch sprawdzający wszystkie mozliwe pola jakie uzytkownik mogl wybrac w sortowaniu
                     {
-                        0-> temp[0] = UczenTemp[U].Imie + U.toString() + "U"
-                        1-> temp[0] = UczenTemp[U].DrugieImie + U.toString() + "U"
-                        2-> temp[0] = UczenTemp[U].Nazwisko + U.toString() + "U"
-                        3-> temp[0] = UczenTemp[U].NazwiskoPaniejskie + U.toString() + "U"
-                        4-> temp[0] = UczenTemp[U].ImieMatki + U.toString() + "U"
-                        5-> temp[0] = UczenTemp[U].ImieOjca + U.toString() + "U"
-                        6-> temp[0] = UczenTemp[U].DataUrodzenia + U.toString() + "U"
-                        7-> temp[0] = UczenTemp[U].Pesel + U.toString() + "U"
-                        8-> temp[0] = UczenTemp[U].Plec + U.toString() + "U"
-                        9-> temp[0] = UczenTemp[U].Klasa + U.toString() + "U" //klasa
-                        10-> temp[0] = UczenTemp[U].Grupy + U.toString() + "U"//grupy
+                        0-> temp[0] = UczenTemp[U]?.Imie + U.toString() + "U"
+                        1-> temp[0] = UczenTemp[U]?.DrugieImie + U.toString() + "U"
+                        2-> temp[0] = UczenTemp[U]?.Nazwisko + U.toString() + "U"
+                        3-> temp[0] = UczenTemp[U]?.NazwiskoPaniejskie + U.toString() + "U"
+                        4-> temp[0] = UczenTemp[U]?.ImieMatki + U.toString() + "U"
+                        5-> temp[0] = UczenTemp[U]?.ImieOjca + U.toString() + "U"
+                        6-> temp[0] = UczenTemp[U]?.DataUrodzenia + U.toString() + "U"
+                        7-> temp[0] = UczenTemp[U]?.Pesel + U.toString() + "U"
+                        8-> temp[0] = UczenTemp[U]?.Plec + U.toString() + "U"
+                        9-> temp[0] = UczenTemp[U]?.Klasa + U.toString() + "U" //klasa
+                        10-> temp[0] = UczenTemp[U]?.Grupy + U.toString() + "U"//grupy
                     }
                     zmienne = zmienne.plus(elements = temp)
                     }
@@ -196,19 +196,19 @@ class MainActivity : AppCompatActivity() {
                         var temp = arrayOf("")
                         when (WybranePole) //MEGA switch sprawdzający wszystkie mozliwe pola jakie uzytkownik mogl wybrac w sortowaniu
                         {
-                            0 -> temp[0] = NauczycielTemp[U].Imie + U.toString() + "N"
-                            1 -> temp[0] = NauczycielTemp[U].DrugieImie + U.toString() + "N"
-                            2 -> temp[0] = NauczycielTemp[U].Nazwisko + U.toString() + "N"
-                            3 -> temp[0] = NauczycielTemp[U].NazwiskoPaniejskie + U.toString() + "N"
-                            4 -> temp[0] = NauczycielTemp[U].ImieMatki + U.toString() + "N"
-                            5 -> temp[0] = NauczycielTemp[U].ImieOjca + U.toString() + "N"
-                            6 -> temp[0] = NauczycielTemp[U].DataUrodzenia + U.toString() + "N"
-                            7 -> temp[0] = NauczycielTemp[U].Pesel + U.toString() + "N"
-                            8 -> temp[0] = NauczycielTemp[U].Plec + U.toString() + "N"
-                            11 -> temp[0] = NauczycielTemp[U].WychowawcaKlasa + U.toString() + "N"//Wychowawstwo
-                            12 -> temp[0] = NauczycielTemp[U].PrzedmiotyNauczane + U.toString() + "N"//Przedmioty
-                            13 -> temp[0] = NauczycielTemp[U].Zajecia + U.toString() + "N"//Zajecia
-                            14 -> temp[0] = NauczycielTemp[U].DataZatrudnienia + U.toString() + "N"//DataZatrudnienia
+                            0 -> temp[0] = NauczycielTemp[U]?.Imie + U.toString() + "N"
+                            1 -> temp[0] = NauczycielTemp[U]?.DrugieImie + U.toString() + "N"
+                            2 -> temp[0] = NauczycielTemp[U]?.Nazwisko + U.toString() + "N"
+                            3 -> temp[0] = NauczycielTemp[U]?.NazwiskoPaniejskie + U.toString() + "N"
+                            4 -> temp[0] = NauczycielTemp[U]?.ImieMatki + U.toString() + "N"
+                            5 -> temp[0] = NauczycielTemp[U]?.ImieOjca + U.toString() + "N"
+                            6 -> temp[0] = NauczycielTemp[U]?.DataUrodzenia + U.toString() + "N"
+                            7 -> temp[0] = NauczycielTemp[U]?.Pesel + U.toString() + "N"
+                            8 -> temp[0] = NauczycielTemp[U]?.Plec + U.toString() + "N"
+                            11 -> temp[0] = NauczycielTemp[U]?.WychowawcaKlasa + U.toString() + "N"//Wychowawstwo
+                            12 -> temp[0] = NauczycielTemp[U]?.PrzedmiotyNauczane + U.toString() + "N"//Przedmioty
+                            13 -> temp[0] = NauczycielTemp[U]?.Zajecia + U.toString() + "N"//Zajecia
+                            14 -> temp[0] = NauczycielTemp[U]?.DataZatrudnienia + U.toString() + "N"//DataZatrudnienia
                         }
                         zmienne = zmienne.plus(elements = temp)
                     }
@@ -219,18 +219,18 @@ class MainActivity : AppCompatActivity() {
                     var temp= arrayOf("")
                     when(WybranePole) //MEGA switch sprawdzający wszystkie mozliwe pola jakie uzytkownik mogl wybrac w sortowaniu
                     {
-                        0-> temp[0] = PracownikTemp[U].Imie + U.toString() + "P"
-                        1-> temp[0] = PracownikTemp[U].DrugieImie + U.toString() + "P"
-                        2-> temp[0] = PracownikTemp[U].Nazwisko + U.toString() + "P"
-                        3-> temp[0] = PracownikTemp[U].NazwiskoPaniejskie + U.toString() + "P"
-                        4-> temp[0] = PracownikTemp[U].ImieMatki + U.toString() + "P"
-                        5-> temp[0] = PracownikTemp[U].ImieOjca + U.toString() + "P"
-                        6-> temp[0] = PracownikTemp[U].DataUrodzenia + U.toString() + "P"
-                        7-> temp[0] = PracownikTemp[U].Pesel + U.toString() + "P"
-                        8-> temp[0] = PracownikTemp[U].Plec + U.toString() + "P"
-                        14-> temp[0] = PracownikTemp[U].DataZatrudnienia + U.toString() + "P"//DataZatrudnienia
-                        15-> temp[0] = PracownikTemp[U].Etat + U.toString() + "P"//Etat
-                        16-> temp[0] = PracownikTemp[U].Opis + U.toString() + "P"//Opis
+                        0-> temp[0] = PracownikTemp[U]?.Imie + U.toString() + "P"
+                        1-> temp[0] = PracownikTemp[U]?.DrugieImie + U.toString() + "P"
+                        2-> temp[0] = PracownikTemp[U]?.Nazwisko + U.toString() + "P"
+                        3-> temp[0] = PracownikTemp[U]?.NazwiskoPaniejskie + U.toString() + "P"
+                        4-> temp[0] = PracownikTemp[U]?.ImieMatki + U.toString() + "P"
+                        5-> temp[0] = PracownikTemp[U]?.ImieOjca + U.toString() + "P"
+                        6-> temp[0] = PracownikTemp[U]?.DataUrodzenia + U.toString() + "P"
+                        7-> temp[0] = PracownikTemp[U]?.Pesel + U.toString() + "P"
+                        8-> temp[0] = PracownikTemp[U]?.Plec + U.toString() + "P"
+                        14-> temp[0] = PracownikTemp[U]?.DataZatrudnienia + U.toString() + "P"//DataZatrudnienia
+                        15-> temp[0] = PracownikTemp[U]?.Etat + U.toString() + "P"//Etat
+                        16-> temp[0] = PracownikTemp[U]?.Opis + U.toString() + "P"//Opis
                     }
                     zmienne = zmienne.plus(elements = temp)
                     }
@@ -257,59 +257,59 @@ class MainActivity : AppCompatActivity() {
                         when(WybranePole)
                         {
                             0->
-                            if (UczenTemp[i].Imie==StringB)
+                            if (UczenTemp[i]?.Imie==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             1->
-                            if (UczenTemp[i].DrugieImie==StringB)
+                            if (UczenTemp[i]?.DrugieImie==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             2->
-                            if (UczenTemp[i].Nazwisko==StringB)
+                            if (UczenTemp[i]?.Nazwisko==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             3->
-                            if (UczenTemp[i].NazwiskoPaniejskie==StringB)
+                            if (UczenTemp[i]?.NazwiskoPaniejskie==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             4->
-                            if (UczenTemp[i].ImieMatki==StringB)
+                            if (UczenTemp[i]?.ImieMatki==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             5->
-                            if (UczenTemp[i].ImieOjca==StringB)
+                            if (UczenTemp[i]?.ImieOjca==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             6->
-                            if (UczenTemp[i].DataUrodzenia==StringB)
+                            if (UczenTemp[i]?.DataUrodzenia==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             7->
-                            if (UczenTemp[i].Pesel==StringB)
+                            if (UczenTemp[i]?.Pesel==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             8->
-                            if (UczenTemp[i].Plec==StringB)
+                            if (UczenTemp[i]?.Plec==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             9->//klasa
-                            if (UczenTemp[i].Klasa==StringB)
+                            if (UczenTemp[i]?.Klasa==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                             10 ->//grupy
-                            if (UczenTemp[i].Grupy==StringB)
+                            if (UczenTemp[i]?.Grupy==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                             }
                         }
                     }
@@ -321,69 +321,69 @@ class MainActivity : AppCompatActivity() {
                         when(WybranePole)
                         {
                             0->
-                                if (NauczycielTemp[i].Imie==StringB)
+                                if (NauczycielTemp[i]?.Imie==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             1->
-                                if (NauczycielTemp[i].DrugieImie==StringB)
+                                if (NauczycielTemp[i]?.DrugieImie==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             2->
-                                if (NauczycielTemp[i].Nazwisko==StringB)
+                                if (NauczycielTemp[i]?.Nazwisko==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             3->
-                                if (NauczycielTemp[i].NazwiskoPaniejskie==StringB)
+                                if (NauczycielTemp[i]?.NazwiskoPaniejskie==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             4->
-                                if (NauczycielTemp[i].ImieMatki==StringB)
+                                if (NauczycielTemp[i]?.ImieMatki==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             5->
-                                if (NauczycielTemp[i].ImieOjca==StringB)
+                                if (NauczycielTemp[i]?.ImieOjca==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             6->
-                                if (NauczycielTemp[i].DataUrodzenia==StringB)
+                                if (NauczycielTemp[i]?.DataUrodzenia==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             7->
-                                if (NauczycielTemp[i].Pesel==StringB)
+                                if (NauczycielTemp[i]?.Pesel==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             8->
-                                if (NauczycielTemp[i].Plec==StringB)
+                                if (NauczycielTemp[i]?.Plec==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             11->//Wychowawstwo
-                            if (NauczycielTemp[i].WychowawcaKlasa==StringB)
+                            if (NauczycielTemp[i]?.WychowawcaKlasa==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + NauczycielTemp[i].ReturnForPrint();
+                                TextView_Widok.text = TextView_Widok.text.toString() + NauczycielTemp[i]?.ReturnForPrint();
                             }
                             12->//Przedmioty
-                            if (NauczycielTemp[i].PrzedmiotyNauczane==StringB)
+                            if (NauczycielTemp[i]?.PrzedmiotyNauczane==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + NauczycielTemp[i].ReturnForPrint();
+                                TextView_Widok.text = TextView_Widok.text.toString() + NauczycielTemp[i]?.ReturnForPrint();
                             }
                             13->//Zajecia
-                            if (NauczycielTemp[i].Zajecia==StringB)
+                            if (NauczycielTemp[i]?.Zajecia==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + NauczycielTemp[i].ReturnForPrint();
+                                TextView_Widok.text = TextView_Widok.text.toString() + NauczycielTemp[i]?.ReturnForPrint();
                             }
                             14->//Data Zatrudnienia
-                            if (NauczycielTemp[i].DataZatrudnienia==StringB)
+                            if (NauczycielTemp[i]?.DataZatrudnienia==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + NauczycielTemp[i].ReturnForPrint();
+                                TextView_Widok.text = TextView_Widok.text.toString() + NauczycielTemp[i]?.ReturnForPrint();
                             }
                         }
 
@@ -396,64 +396,64 @@ class MainActivity : AppCompatActivity() {
                         when(WybranePole)
                         {
                             0->
-                                if (PracownikTemp[i].Imie==StringB)
+                                if (PracownikTemp[i]?.Imie==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             1->
-                                if (PracownikTemp[i].DrugieImie==StringB)
+                                if (PracownikTemp[i]?.DrugieImie==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             2->
-                                if (PracownikTemp[i].Nazwisko==StringB)
+                                if (PracownikTemp[i]?.Nazwisko==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             3->
-                                if (PracownikTemp[i].NazwiskoPaniejskie==StringB)
+                                if (PracownikTemp[i]?.NazwiskoPaniejskie==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             4->
-                                if (PracownikTemp[i].ImieMatki==StringB)
+                                if (PracownikTemp[i]?.ImieMatki==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             5->
-                                if (PracownikTemp[i].ImieOjca==StringB)
+                                if (PracownikTemp[i]?.ImieOjca==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             6->
-                                if (PracownikTemp[i].DataUrodzenia==StringB)
+                                if (PracownikTemp[i]?.DataUrodzenia==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             7->
-                                if (PracownikTemp[i].Pesel==StringB)
+                                if (PracownikTemp[i]?.Pesel==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             8->
-                                if (PracownikTemp[i].Plec==StringB)
+                                if (PracownikTemp[i]?.Plec==StringB)
                                 {
-                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i].ReturnForPrint()
+                                    TextView_Widok.text = TextView_Widok.text.toString() + UczenTemp[i]?.ReturnForPrint()
                                 }
                             14->//Data Zatrudnienia
-                            if (PracownikTemp[i].DataZatrudnienia==StringB)
+                            if (PracownikTemp[i]?.DataZatrudnienia==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + PracownikTemp[i].ReturnForPrint();
+                                TextView_Widok.text = TextView_Widok.text.toString() + PracownikTemp[i]?.ReturnForPrint();
                             }
                             15->//Etat
-                            if (PracownikTemp[i].Etat==StringB)
+                            if (PracownikTemp[i]?.Etat==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + PracownikTemp[i].ReturnForPrint();
+                                TextView_Widok.text = TextView_Widok.text.toString() + PracownikTemp[i]?.ReturnForPrint();
                             }
                             16->//Opis
-                            if (PracownikTemp[i].Opis==StringB)
+                            if (PracownikTemp[i]?.Opis==StringB)
                             {
-                                TextView_Widok.text = TextView_Widok.text.toString() + PracownikTemp[i].ReturnForPrint();
+                                TextView_Widok.text = TextView_Widok.text.toString() + PracownikTemp[i]?.ReturnForPrint();
                             }
                         }
                     }
@@ -468,9 +468,9 @@ class MainActivity : AppCompatActivity() {
             var Filtr: String = FiltrTextBox.text.toString()
             var okej:Boolean = true;
 
-            var TempUczen: Array<Uczen?> =Array<Uczen?>
-            var TempNauczyciel: Array<Nauczyciel?> =Array<Nauczyciel>
-            var TempPracownik: Array<Pracownik?> =Array<Pracownik>
+            var TempUczen: Array<Uczen?> = arrayOfNulls(0)
+            var TempNauczyciel: Array<Nauczyciel?> = arrayOfNulls(0)
+            var TempPracownik: Array<Pracownik?> = arrayOfNulls(0)
             if ((SelectedSearchIndex != 6 || SelectedSearchIndex != 14 )&& (SelectedSearchTypeIndex == 4 || SelectedSearchTypeIndex==5))
             {
                 okej = false;
@@ -502,7 +502,7 @@ class MainActivity : AppCompatActivity() {
                         9->wartosc = TableUczen[i]?.Klasa
                         10->wartosc = TableUczen[i]?.Grupy
                     }
-                    var TempTempUczen: Array<Uczen?>
+                    var TempTempUczen: Array<Uczen?> = arrayOfNulls(0)
                     var Good:Boolean = false
                     when(SelectedSearchTypeIndex)
                     {
@@ -540,16 +540,16 @@ class MainActivity : AppCompatActivity() {
                         13->wartosc = TableNauczyciel[i]?.Zajecia
                         14->wartosc = TableNauczyciel[i]?.DataZatrudnienia
                     }
-                    var TempTempNauczyciel: Array<Nauczyciel?>
+                    var TempTempNauczyciel: Array<Nauczyciel?> = arrayOfNulls(0)
                     var Good: Boolean = false
                     when(SelectedSearchTypeIndex)
                     {
-                        0->if (wartosc.contains(Filtr)) { Good = true }
+                        0->if (wartosc?.contains(Filtr)==true) { Good = true }
                         1->if (wartosc==Filtr) { Good = true }
-                        2->if (wartosc.endsWith(Filtr)) { Good = true }
-                        3->if (wartosc.startsWith(Filtr)) { Good = true }
-                        4->if (Filtr.compareTo(wartosc) ==1) { Good = true }
-                        5->if (wartosc.compareTo(Filtr) ==1) { Good = true }
+                        2->if (wartosc?.endsWith(Filtr)==true) { Good = true }
+                        3->if (wartosc?.startsWith(Filtr)==true) { Good = true }
+                        4->if (Filtr.compareTo(wartosc.toString()) ==1) { Good = true }
+                        5->if (wartosc?.compareTo(Filtr) ==1) { Good = true }
                     }
                     if (Good)
                     {
@@ -577,16 +577,16 @@ class MainActivity : AppCompatActivity() {
                         15-> wartosc = TablePracownik[i]?.Etat
                         16-> wartosc = TablePracownik[i]?.Opis
                     }
-                    var TempTempPracownik: Array<Pracownik?>
+                    var TempTempPracownik: Array<Pracownik?> = arrayOfNulls(0)
                     var Good: Boolean = false
                     when(SelectedSearchTypeIndex)
                     {
-                        0->if (wartosc?.contains(Filtr)==1) { Good = true }
+                        0->if (wartosc?.contains(Filtr)==true) { Good = true }
                         1->if (wartosc==Filtr) { Good = true }
-                        2->if (wartosc?.endsWith(Filtr)==1) { Good = true }
-                        3->if (wartosc?.startsWith(Filtr)==1) { Good = true }
-                        4->if (Filtr.compareTo(wartosc) ==1) { Good = true }
-                        5->if (wartosc.compareTo(Filtr) ==1) { Good = true }
+                        2->if (wartosc?.endsWith(Filtr)==true) { Good = true }
+                        3->if (wartosc?.startsWith(Filtr)==true) { Good = true }
+                        4->if (Filtr.compareTo(wartosc.toString()) ==1) { Good = true }
+                        5->if (wartosc?.compareTo(Filtr) ==1) { Good = true }
                     }
                     if (Good)
                     {
@@ -597,7 +597,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (CheckSortuj.isChecked) {
 
-                    Sortuj(TempUczen, TempNauczyciel, TempPracownik, SelectedSortIndex);
+                    Sortuj(TempUczen, TempNauczyciel, TempPracownik, 1);
                 }
                 else
                 {
