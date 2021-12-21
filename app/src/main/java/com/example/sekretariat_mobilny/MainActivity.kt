@@ -610,40 +610,40 @@ class MainActivity : AppCompatActivity() {
                 var Temp : Uczen = Uczen()
 
                 Temp.Rodzaj = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Imie = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.DrugieImie = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Nazwisko = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.NazwiskoPaniejskie = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.ImieOjca = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.ImieMatki = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.DataUrodzenia = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Pesel = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Plec = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
 
                 Temp.Klasa = line.substring(0, line.indexOf("Ø"));
                 line = line.substring( line.indexOf("Ø") + 1,line.length-1);
 
-                Temp.Grupy = line.substring(0, line.length-1);
+                Temp.Grupy = line.substring(0, line.length);
 
                 var TempTableUczen: Array<Uczen?> = arrayOf(Temp)
                 TableUczen = TableUczen.plus(elements = TempTableUczen)
@@ -654,43 +654,43 @@ class MainActivity : AppCompatActivity() {
                 var Temp : Nauczyciel = Nauczyciel()
 
                 Temp.Rodzaj = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Imie = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.DrugieImie = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Nazwisko = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.NazwiskoPaniejskie = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.ImieOjca = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.ImieMatki = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.DataUrodzenia = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Pesel = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Plec = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.WychowawcaKlasa = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.PrzedmiotyNauczane = line.substring(0, line.indexOf("Ø"));
-                line = line.substring(  line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring(  line.indexOf("Ø") + 1,line.length);
 
-                Temp.Zajecia = line.substring(0, 1);
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                Temp.Zajecia = line.substring(0, line.indexOf("Ø"));
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.DataZatrudnienia = line.substring(0, line.length-1);
 
@@ -699,48 +699,48 @@ class MainActivity : AppCompatActivity() {
             }
             if (line.startsWith("P"))
             {
-                /*var Temp : Pracownik = Pracownik()
+                var Temp : Pracownik = Pracownik()
 
                 Temp.Rodzaj = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Imie = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.DrugieImie = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Nazwisko = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.NazwiskoPaniejskie = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.ImieOjca = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.ImieMatki = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.DataUrodzenia = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Pesel = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Plec = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Etat = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.Opis = line.substring(0, line.indexOf("Ø"));
-                line = line.substring( line.indexOf("Ø") + 1,line.length-1);
+                line = line.substring( line.indexOf("Ø") + 1,line.length);
 
                 Temp.DataZatrudnienia = line.substring(0, line.length-1);
 
                 var TempTablePracownik: Array<Pracownik?> = arrayOf(Temp)
-                TablePracownik = TablePracownik.plus(elements = TempTablePracownik)*/
+                TablePracownik = TablePracownik.plus(elements = TempTablePracownik)
             }
         }
 
