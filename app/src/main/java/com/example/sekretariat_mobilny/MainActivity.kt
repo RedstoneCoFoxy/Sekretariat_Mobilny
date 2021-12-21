@@ -461,6 +461,151 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        fun Szukaj()
+        {
+            var SelectedSearchIndex : Int = Spinner_SzukajPoPolu.selectedItemPosition-1
+            var SelectedSearchTypeIndex : Int = Spinner_SzukajSposob.selectedItemPosition-1
+            var Filtr: String = FiltrTextBox.text.toString()
+            var okej:Boolean = true;
+
+            var TempUczen: Array<Uczen?> =Array<Uczen?>
+            var TempNauczyciel: Array<Nauczyciel?> =Array<Nauczyciel>
+            var TempPracownik: Array<Pracownik?> =Array<Pracownik>
+            if ((SelectedSearchIndex != 6 || SelectedSearchIndex != 14 )&& (SelectedSearchTypeIndex == 4 || SelectedSearchTypeIndex==5))
+            {
+                okej = false;
+                //Spinner_SzukajPoPolu.foreground=R.color.red
+               // Spinner_SzukajPoPolu.foreground=R.color.red
+            }
+            else
+            {
+                //Spinner_SzukajPoPolu.foreground=new Drawable
+                //Spinner_SzukajPoPolu.foreground=R.color.black
+            }
+
+            if (okej) {
+                for(i in 0 until  TableUczen.size)
+                {
+                    var wartosc: String?=""
+                    when(SelectedSearchIndex)
+                    {
+                        0->wartosc = TableUczen[i]?.Imie
+                        1->wartosc = TableUczen[i]?.DrugieImie
+                        2->wartosc = TableUczen[i]?.Nazwisko
+                        3->wartosc = TableUczen[i]?.NazwiskoPaniejskie
+                        4->wartosc = TableUczen[i]?.ImieMatki
+                        5->wartosc = TableUczen[i]?.ImieOjca
+                        6->wartosc = TableUczen[i]?.DataUrodzenia
+                        7->wartosc = TableUczen[i]?.Pesel
+                        8->wartosc = TableUczen[i]?.Plec
+
+                        9->wartosc = TableUczen[i]?.Klasa
+                        10->wartosc = TableUczen[i]?.Grupy
+                    }
+                    var TempTempUczen: Array<Uczen?>
+                    var Good:Boolean = false
+                    when(SelectedSearchTypeIndex)
+                    {
+                        0->if (wartosc?.contains(Filtr)==true) { Good = true }
+                        1->if (wartosc==Filtr) { Good = true }
+                        2->if (wartosc?.endsWith(Filtr)==true) { Good = true }
+                        3->if (wartosc?.startsWith(Filtr)==true) { Good = true }
+                        4->if (Filtr.compareTo(wartosc.toString()) ==1) { Good = true }
+                        5->if (wartosc?.compareTo(Filtr) ==1) { Good = true }
+                    }
+                    if (Good)
+                    {
+                        TempTempUczen[0] = TableUczen[i];
+                        TempUczen = TempUczen.plus(elements = TempTempUczen)
+                    }
+                }
+
+                for (i in 0 until TableNauczyciel.size)
+                {
+                    var wartosc: String?=""
+                    when(SelectedSearchIndex)
+                    {
+                        0->wartosc = TableNauczyciel[i]?.Imie
+                        1->wartosc = TableNauczyciel[i]?.DrugieImie
+                        2->wartosc = TableNauczyciel[i]?.Nazwisko
+                        3->wartosc = TableNauczyciel[i]?.NazwiskoPaniejskie
+                        4->wartosc = TableNauczyciel[i]?.ImieMatki
+                        5->wartosc = TableNauczyciel[i]?.ImieOjca
+                        6->wartosc = TableNauczyciel[i]?.DataUrodzenia
+                        7->wartosc = TableNauczyciel[i]?.Pesel
+                        8->wartosc = TableNauczyciel[i]?.Plec
+
+                        11->wartosc = TableNauczyciel[i]?.WychowawcaKlasa
+                        12->wartosc = TableNauczyciel[i]?.PrzedmiotyNauczane
+                        13->wartosc = TableNauczyciel[i]?.Zajecia
+                        14->wartosc = TableNauczyciel[i]?.DataZatrudnienia
+                    }
+                    var TempTempNauczyciel: Array<Nauczyciel?>
+                    var Good: Boolean = false
+                    when(SelectedSearchTypeIndex)
+                    {
+                        0->if (wartosc.contains(Filtr)) { Good = true }
+                        1->if (wartosc==Filtr) { Good = true }
+                        2->if (wartosc.endsWith(Filtr)) { Good = true }
+                        3->if (wartosc.startsWith(Filtr)) { Good = true }
+                        4->if (Filtr.compareTo(wartosc) ==1) { Good = true }
+                        5->if (wartosc.compareTo(Filtr) ==1) { Good = true }
+                    }
+                    if (Good)
+                    {
+                        TempTempNauczyciel[0] = TableNauczyciel[i]
+                        TempNauczyciel = TempNauczyciel.plus(elements = TempTempNauczyciel)
+                    }
+                }
+
+                for (i in 0 until TablePracownik.size)
+                {
+                    var wartosc: String?=""
+                    when(SelectedSearchIndex)
+                    {
+                        0->wartosc = TablePracownik[i]?.Imie
+                        1-> wartosc = TablePracownik[i]?.DrugieImie
+                        2-> wartosc = TablePracownik[i]?.Nazwisko
+                        3-> wartosc = TablePracownik[i]?.NazwiskoPaniejskie
+                        4-> wartosc = TablePracownik[i]?.ImieMatki
+                        5-> wartosc = TablePracownik[i]?.ImieOjca
+                        6-> wartosc = TablePracownik[i]?.DataUrodzenia
+                        7-> wartosc = TablePracownik[i]?.Pesel
+                        8-> wartosc = TablePracownik[i]?.Plec
+
+                        14-> wartosc = TablePracownik[i]?.DataZatrudnienia
+                        15-> wartosc = TablePracownik[i]?.Etat
+                        16-> wartosc = TablePracownik[i]?.Opis
+                    }
+                    var TempTempPracownik: Array<Pracownik?>
+                    var Good: Boolean = false
+                    when(SelectedSearchTypeIndex)
+                    {
+                        0->if (wartosc?.contains(Filtr)==1) { Good = true }
+                        1->if (wartosc==Filtr) { Good = true }
+                        2->if (wartosc?.endsWith(Filtr)==1) { Good = true }
+                        3->if (wartosc?.startsWith(Filtr)==1) { Good = true }
+                        4->if (Filtr.compareTo(wartosc) ==1) { Good = true }
+                        5->if (wartosc.compareTo(Filtr) ==1) { Good = true }
+                    }
+                    if (Good)
+                    {
+                        TempTempPracownik[0] = TablePracownik[i]
+                        TempPracownik = TempPracownik.plus(elements = TempTempPracownik)
+                    }
+                }
+
+                if (CheckSortuj.isChecked) {
+
+                    Sortuj(TempUczen, TempNauczyciel, TempPracownik, SelectedSortIndex);
+                }
+                else
+                {
+                    Update_Widok(TempUczen,TempNauczyciel,TempPracownik);
+                }
+            }
+        }
+
         CheckSzukaj.setOnClickListener{
             if(CheckSzukaj.isChecked){
                 Spinner_SzukajPoPolu.isEnabled=true
