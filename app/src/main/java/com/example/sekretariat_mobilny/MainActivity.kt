@@ -459,7 +459,6 @@ class MainActivity : AppCompatActivity() {
 
         fun Szukaj()
         {
-            TextView_Widok.text = "";
             var SelectedSearchIndex : Int = Spinner_SzukajPoPolu.selectedItemPosition
             var SelectedSearchTypeIndex : Int = Spinner_SzukajSposob.selectedItemPosition
             var Filtr: String = FiltrTextBox.text.toString()
@@ -468,23 +467,17 @@ class MainActivity : AppCompatActivity() {
             var TempUczen: Array<Uczen?> = arrayOfNulls(0)
             var TempNauczyciel: Array<Nauczyciel?> = arrayOfNulls(0)
             var TempPracownik: Array<Pracownik?> = arrayOfNulls(0)
-            if ((SelectedSearchIndex != 6 || SelectedSearchIndex != 14 )&& (SelectedSearchTypeIndex == 4 || SelectedSearchTypeIndex==5))
+            if (SelectedSearchTypeIndex==5||SelectedSearchTypeIndex==4)
             {
                 okej = false;
-                //Spinner_SzukajPoPolu.foreground=R.color.red
-               // Spinner_SzukajPoPolu.foreground=R.color.red
-            }
-            else
-            {
-                //Spinner_SzukajPoPolu.foreground=new Drawable
-                //Spinner_SzukajPoPolu.foreground=R.color.black
+                TextView_Widok.text="Niezgodne połączenia pole z sposobem szukania"
+                if(SelectedSearchIndex == 6 || SelectedSearchIndex == 14){okej = true;}
             }
 
+
             if (okej) {
-                TextView_Widok.text = TextView_Widok.text.toString() + "Oke"
                 for(i in 0 until  TableUczen.size)
                 {
-                    TextView_Widok.text = TextView_Widok.text.toString() + "U"
                     var wartosc: String?=""
                     when(SelectedSearchIndex)
                     {
@@ -521,7 +514,6 @@ class MainActivity : AppCompatActivity() {
 
                 for (i in 0 until TableNauczyciel.size)
                 {
-                    TextView_Widok.text = TextView_Widok.text.toString() + "N"
                     var wartosc: String?=""
                     when(SelectedSearchIndex)
                     {
@@ -560,7 +552,6 @@ class MainActivity : AppCompatActivity() {
 
                 for (i in 0 until TablePracownik.size)
                 {
-                    TextView_Widok.text = TextView_Widok.text.toString() + "P"
                     var wartosc: String?=""
                     when(SelectedSearchIndex)
                     {
@@ -602,7 +593,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 else
                 {
-                    //TextView_Widok.text = TextView_Widok.text.toString() + "h"
                     Update_Widok(TempUczen,TempNauczyciel,TempPracownik);
                 }
             }
