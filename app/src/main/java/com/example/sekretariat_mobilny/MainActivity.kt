@@ -9,6 +9,7 @@ import android.widget.RadioButton
 import android.widget.EditText
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
+import android.text.method.ScrollingMovementMethod
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         val RadioDescending: RadioButton = findViewById(R.id.main_RadioDESC)
         val RadioGroup: RadioGroup = findViewById(R.id.Main_RadioGroup)
         val FiltrTextBox: EditText = findViewById(R.id.Main_FiltrBox)
+
+        TextView_Widok.movementMethod = ScrollingMovementMethod()
 
         //deklaracja obiektów poszcególnych osób (przekopiowana z desktopowej wersji programu)
         class Uczen constructor() {
