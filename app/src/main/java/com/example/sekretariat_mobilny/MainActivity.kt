@@ -459,6 +459,7 @@ class MainActivity : AppCompatActivity() {
 
         fun Szukaj()
         {
+            TextView_Widok.text = "";
             var SelectedSearchIndex : Int = Spinner_SzukajPoPolu.selectedItemPosition
             var SelectedSearchTypeIndex : Int = Spinner_SzukajSposob.selectedItemPosition
             var Filtr: String = FiltrTextBox.text.toString()
@@ -480,8 +481,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (okej) {
+                TextView_Widok.text = TextView_Widok.text.toString() + "Oke"
                 for(i in 0 until  TableUczen.size)
                 {
+                    TextView_Widok.text = TextView_Widok.text.toString() + "U"
                     var wartosc: String?=""
                     when(SelectedSearchIndex)
                     {
@@ -498,7 +501,7 @@ class MainActivity : AppCompatActivity() {
                         9->wartosc = TableUczen[i]?.Klasa
                         10->wartosc = TableUczen[i]?.Grupy
                     }
-                    var TempTempUczen: Array<Uczen?> = arrayOfNulls(0)
+                    var TempTempUczen: Array<Uczen?> = arrayOfNulls(1)
                     var Good:Boolean = false
                     when(SelectedSearchTypeIndex)
                     {
@@ -518,6 +521,7 @@ class MainActivity : AppCompatActivity() {
 
                 for (i in 0 until TableNauczyciel.size)
                 {
+                    TextView_Widok.text = TextView_Widok.text.toString() + "N"
                     var wartosc: String?=""
                     when(SelectedSearchIndex)
                     {
@@ -536,7 +540,7 @@ class MainActivity : AppCompatActivity() {
                         13->wartosc = TableNauczyciel[i]?.Zajecia
                         14->wartosc = TableNauczyciel[i]?.DataZatrudnienia
                     }
-                    var TempTempNauczyciel: Array<Nauczyciel?> = arrayOfNulls(0)
+                    var TempTempNauczyciel: Array<Nauczyciel?> = arrayOfNulls(1)
                     var Good: Boolean = false
                     when(SelectedSearchTypeIndex)
                     {
@@ -556,6 +560,7 @@ class MainActivity : AppCompatActivity() {
 
                 for (i in 0 until TablePracownik.size)
                 {
+                    TextView_Widok.text = TextView_Widok.text.toString() + "P"
                     var wartosc: String?=""
                     when(SelectedSearchIndex)
                     {
@@ -573,7 +578,7 @@ class MainActivity : AppCompatActivity() {
                         15-> wartosc = TablePracownik[i]?.Etat
                         16-> wartosc = TablePracownik[i]?.Opis
                     }
-                    var TempTempPracownik: Array<Pracownik?> = arrayOfNulls(0)
+                    var TempTempPracownik: Array<Pracownik?> = arrayOfNulls(1)
                     var Good: Boolean = false
                     when(SelectedSearchTypeIndex)
                     {
@@ -597,6 +602,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else
                 {
+                    //TextView_Widok.text = TextView_Widok.text.toString() + "h"
                     Update_Widok(TempUczen,TempNauczyciel,TempPracownik);
                 }
             }

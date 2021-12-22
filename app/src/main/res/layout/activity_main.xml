@@ -100,7 +100,7 @@
         app:layout_constraintStart_toStartOf="@+id/Main_SzukajCheck"
         app:layout_constraintTop_toBottomOf="@+id/Main_SzukajCheck"
         app:layout_constraintVertical_bias="0.0"
-        android:enabled="false"/>
+        />
 
     <Spinner
         android:id="@+id/Main_ListSortujPoPolu"
@@ -114,7 +114,7 @@
         app:layout_constraintStart_toStartOf="@+id/main_SortujCheck"
         app:layout_constraintTop_toBottomOf="@+id/Main_SzukajCheck"
         app:layout_constraintVertical_bias="0.0"
-        android:enabled="false"/>
+        />
 
     <Spinner
         android:id="@+id/Main_ListSzukajSposob"
@@ -128,7 +128,7 @@
         app:layout_constraintStart_toStartOf="@+id/Main_ListSzukajPoPolu"
         app:layout_constraintTop_toTopOf="@+id/Main_ListSzukajPoPolu"
         app:layout_constraintVertical_bias="0.0"
-        android:enabled="false"/>
+        />
 
 
     <RadioGroup
@@ -142,7 +142,7 @@
         app:layout_constraintStart_toEndOf="@+id/main_SortujCheck"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:enabled="false">
+        >
 
         <RadioButton
             android:id="@+id/Main_RadioASC"
@@ -183,6 +183,6 @@
         app:layout_constraintStart_toEndOf="@+id/Main_SzukajCheck"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:enabled="false"/>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
