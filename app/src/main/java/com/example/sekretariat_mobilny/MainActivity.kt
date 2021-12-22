@@ -15,7 +15,6 @@ import android.webkit.URLUtil
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.io.File
-import java.io.InputStream
 
 
 class MainActivity : AppCompatActivity() {
@@ -793,19 +792,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
         fun ZaladujPlik(){
-            Thread.sleep(3_000)
             TextView_Widok.text=Environment.DIRECTORY_DOWNLOADS + File.separator + NazwaPlikuOtwieranego
-            val InputStream : InputStream = File(Environment.DIRECTORY_DOWNLOADS + File.separator + NazwaPlikuOtwieranego).inputStream()
-
-            //InputStream.bufferedReader().useLines { lines->lines.forEach{ZaladujRekordDoBazy(it)} }
-            /*ZaladujRekordDoBazy("UØAdamØAleksanderØNowakØKowalØIgnacyØKatarzynaØ27.08.2018Ø31235836438ØMężczyznaØ3AØkółko teatralneØ")
-            ZaladujRekordDoBazy("UØEwaØMariannaØNowakØZielonaØKazimierzØElaØ26.12.2016Ø12348626499ØKobietaØ3BØkółko teatralne;kącik kulinarnyØ")
-            ZaladujRekordDoBazy("UØAnnaØKatarzynaØKwiatkowskaØØJanuszØElaØ07.07.2014Ø21356713254ØKobietaØ3BØkółko teatralneØ")
-            ZaladujRekordDoBazy("UØMariannaØEwelinaØCegielskaØØZdzisławØØ25.03.2013Ø65497612376ØKobietaØ3BØkącik kulinarnyØ")
-            ZaladujRekordDoBazy("NØDawidØCØBrodziczØWisielskiØJanØElaØ06.10.2020Ø45632187621ØMężczyznaØ3AØAngielskiØPoniedziałek 9.00Ø10.07.2019Ø")
-            ZaladujRekordDoBazy("NØKubaØCØMedzielØBombaØFilipØFilipØ25.09.2019Ø23445789233ØMężczyznaØ3BØPolskiØWtorek 10.00Ø03.07.2017Ø")
-            ZaladujRekordDoBazy("PØKazimierzØØWolnyØØØØ25.09.2019Ø12345678911ØMężczyznaØPelenØWoźnyØ05.04.2021Ø")
-            */
+            val File = File(Environment.DIRECTORY_DOWNLOADS, NazwaPlikuOtwieranego)
+            if(File.exists()) {
+                File.forEachLine { ZaladujRekordDoBazy(it) }
+            }
             //Update_Widok(TableUczen, TableNauczyciel, TablePracownik)
         }
         fun OtworzPlik(URL:String){
@@ -825,7 +816,7 @@ class MainActivity : AppCompatActivity() {
 
             if(Good){
                 var request = DownloadManager.Request(Uri.parse(URL))
-                        .setTitle("Plik bazy")
+                        .setTitle(NazwaPlikuOtwieranego)
                         .setDescription("Plik do sekretariatu mobilnego")
                         .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
                         .setAllowedOverMetered(true)
