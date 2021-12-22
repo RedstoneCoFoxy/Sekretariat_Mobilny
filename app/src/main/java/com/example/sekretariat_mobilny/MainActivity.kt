@@ -1,20 +1,27 @@
 package com.example.sekretariat_mobilny
 
+import android.app.AlertDialog
+import android.app.DownloadManager
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import android.widget.CheckBox
-import android.widget.Spinner
-import android.widget.RadioButton
-import android.widget.EditText
-import android.widget.RadioGroup
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Environment
+import android.text.InputType
 import android.text.method.ScrollingMovementMethod
+import android.webkit.URLUtil
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val TextView_Widok: TextView = findViewById(R.id.Main_Widok)
         val Button_OtworzPlik: Button = findViewById(R.id.Main_ButtonOtworz)
@@ -33,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         val RadioGroup: RadioGroup = findViewById(R.id.Main_RadioGroup)
         val FiltrTextBox: EditText = findViewById(R.id.Main_FiltrBox)
 
+        var MyDownloadId : Long = 0
         TextView_Widok.movementMethod = ScrollingMovementMethod()
 
         //deklaracja obiektów poszcególnych osób (przekopiowana z desktopowej wersji programu)
@@ -783,49 +791,68 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        Button_OtworzPlik.setOnClickListener {
+        fun OtworzPlik(URL:String){
+            var NazwaPliku:String="";
+            var Good :Boolean=false
+            if(!URLUtil.isValidUrl(URL)){
+                Toast.makeText(applicationContext,"Nie poprawne URL",Toast.LENGTH_LONG).show()
+            }else{
+                Good=true
+                NazwaPliku= URL.subSequence(URL.lastIndexOf("/")+1,URL.length).toString()
+            }
 
+            if(NazwaPliku.endsWith(".baza")==false){
+                Toast.makeText(applicationContext,"Nie jest to plik typu .baza",Toast.LENGTH_LONG).show()
+            }else{
+                Good=true
+            }
 
-            ZaladujRekordDoBazy("UØAdamØAleksanderØNowakØKowalØIgnacyØKatarzynaØ27.08.2018Ø31235836438ØMężczyznaØ3AØkółko teatralneØ")
+            if(Good){
+                var request = DownloadManager.Request(Uri.parse(URL))
+                        .setTitle("Plik bazy")
+                        .setDescription("Plik do sekretariatu mobilnego")
+                        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                        .setAllowedOverMetered(true)
+                        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "baza.baza")
+                var DManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+                MyDownloadId = DManager.enqueue(request)
+
+                /*ZaladujRekordDoBazy("UØAdamØAleksanderØNowakØKowalØIgnacyØKatarzynaØ27.08.2018Ø31235836438ØMężczyznaØ3AØkółko teatralneØ")
             ZaladujRekordDoBazy("UØEwaØMariannaØNowakØZielonaØKazimierzØElaØ26.12.2016Ø12348626499ØKobietaØ3BØkółko teatralne;kącik kulinarnyØ")
             ZaladujRekordDoBazy("UØAnnaØKatarzynaØKwiatkowskaØØJanuszØElaØ07.07.2014Ø21356713254ØKobietaØ3BØkółko teatralneØ")
             ZaladujRekordDoBazy("UØMariannaØEwelinaØCegielskaØØZdzisławØØ25.03.2013Ø65497612376ØKobietaØ3BØkącik kulinarnyØ")
             ZaladujRekordDoBazy("NØDawidØCØBrodziczØWisielskiØJanØElaØ06.10.2020Ø45632187621ØMężczyznaØ3AØAngielskiØPoniedziałek 9.00Ø10.07.2019Ø")
             ZaladujRekordDoBazy("NØKubaØCØMedzielØBombaØFilipØFilipØ25.09.2019Ø23445789233ØMężczyznaØ3BØPolskiØWtorek 10.00Ø03.07.2017Ø")
             ZaladujRekordDoBazy("PØKazimierzØØWolnyØØØØ25.09.2019Ø12345678911ØMężczyznaØPelenØWoźnyØ05.04.2021Ø")
-            Update_Widok(TableUczen,TableNauczyciel,TablePracownik)
-            /*java.lang.Thread(object : java.lang.Runnable {
-                open override fun run() {
-                    var urls: ArrayList<kotlin.String?>? = ArrayList<kotlin.String?>() //to read each line
-                    //TextView t; //to show the result, please declare and find it inside onCreate()
-                    try {
-                        // Create a URL for the desired page
-                        var url: java.net.URL? = java.net.URL("https://github.com/RedstoneCoFoxy/Sekretariat_Mobilny/blob/master/text.txt") //My text file location
-                        //First open the connection
-                        var conn: java.net.HttpURLConnection? = url.openConnection() as java.net.HttpURLConnection?
-                        conn.setConnectTimeout(60000) // timing out in a minute
-                        var `in`: java.io.BufferedReader? = java.io.BufferedReader(java.io.InputStreamReader(conn.getInputStream()))
+            */
+                //Update_Widok(TableUczen, TableNauczyciel, TablePracownik)
+            }
+        }
 
-                        //t=(TextView)findViewById(R.id.TextView1); // ideally do this in onCreate()
-                        var str: kotlin.String?
-                        while ((`in`.readLine().also({ str = it })) != null) {
-                            urls.add(str)
-                        }
-                        `in`.close()
-                    } catch (e: java.lang.Exception) {
-                        android.util.Log.d("MyTag", e.toString())
-                    }
-
-                    //since we are in background thread, to post results we have to go back to ui thread. do the following for that
-                    this.runOnUiThread(object : java.lang.Runnable {
-                        open override fun run() {
-                            TextView_Widok.setText(urls.get(0)) // My TextFile has 3 lines
-                        }
-                    })
-                }
-            }).start()*/
-
+        Button_OtworzPlik.setOnClickListener {
+            fun showdialog(){
+                var Url:String=""
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this).setTitle("Podaj URL")
+                val input = EditText(this)
+                input.setHint("URL")
+                input.inputType = InputType.TYPE_CLASS_TEXT
+                builder.setView(input)
+                builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which -> OtworzPlik(URL= input.text.toString()) })
+                builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
+                builder.show()
+            }
+            showdialog()
         }//button function end
+
+        var Broadcast = object: BroadcastReceiver(){
+            override fun onReceive(p0: Context?,p1: Intent?){
+                var id=p1?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+                if(id==MyDownloadId){
+                    Toast.makeText(applicationContext,"Pobrano plik!",Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+        registerReceiver(Broadcast,android.content.IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
 
     }//on create end
 }//main end
