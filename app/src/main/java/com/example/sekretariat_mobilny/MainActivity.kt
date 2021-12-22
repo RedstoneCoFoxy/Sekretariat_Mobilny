@@ -14,7 +14,8 @@ import android.text.method.ScrollingMovementMethod
 import android.webkit.URLUtil
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-
+import java.io.File
+import java.io.InputStream
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         val FiltrTextBox: EditText = findViewById(R.id.Main_FiltrBox)
 
         var MyDownloadId : Long = 0
+        var NazwaPlikuOtwieranego:String="";
         TextView_Widok.movementMethod = ScrollingMovementMethod()
 
         //deklaracja obiektów poszcególnych osób (przekopiowana z desktopowej wersji programu)
@@ -790,18 +792,32 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        fun ZaladujPlik(){
+            Thread.sleep(3_000)
+            TextView_Widok.text=Environment.DIRECTORY_DOWNLOADS + File.separator + NazwaPlikuOtwieranego
+            val InputStream : InputStream = File(Environment.DIRECTORY_DOWNLOADS + File.separator + NazwaPlikuOtwieranego).inputStream()
 
+            //InputStream.bufferedReader().useLines { lines->lines.forEach{ZaladujRekordDoBazy(it)} }
+            /*ZaladujRekordDoBazy("UØAdamØAleksanderØNowakØKowalØIgnacyØKatarzynaØ27.08.2018Ø31235836438ØMężczyznaØ3AØkółko teatralneØ")
+            ZaladujRekordDoBazy("UØEwaØMariannaØNowakØZielonaØKazimierzØElaØ26.12.2016Ø12348626499ØKobietaØ3BØkółko teatralne;kącik kulinarnyØ")
+            ZaladujRekordDoBazy("UØAnnaØKatarzynaØKwiatkowskaØØJanuszØElaØ07.07.2014Ø21356713254ØKobietaØ3BØkółko teatralneØ")
+            ZaladujRekordDoBazy("UØMariannaØEwelinaØCegielskaØØZdzisławØØ25.03.2013Ø65497612376ØKobietaØ3BØkącik kulinarnyØ")
+            ZaladujRekordDoBazy("NØDawidØCØBrodziczØWisielskiØJanØElaØ06.10.2020Ø45632187621ØMężczyznaØ3AØAngielskiØPoniedziałek 9.00Ø10.07.2019Ø")
+            ZaladujRekordDoBazy("NØKubaØCØMedzielØBombaØFilipØFilipØ25.09.2019Ø23445789233ØMężczyznaØ3BØPolskiØWtorek 10.00Ø03.07.2017Ø")
+            ZaladujRekordDoBazy("PØKazimierzØØWolnyØØØØ25.09.2019Ø12345678911ØMężczyznaØPelenØWoźnyØ05.04.2021Ø")
+            */
+            //Update_Widok(TableUczen, TableNauczyciel, TablePracownik)
+        }
         fun OtworzPlik(URL:String){
-            var NazwaPliku:String="";
             var Good :Boolean=false
             if(!URLUtil.isValidUrl(URL)){
                 Toast.makeText(applicationContext,"Nie poprawne URL",Toast.LENGTH_LONG).show()
             }else{
                 Good=true
-                NazwaPliku= URL.subSequence(URL.lastIndexOf("/")+1,URL.length).toString()
+                NazwaPlikuOtwieranego= URL.subSequence(URL.lastIndexOf("/")+1,URL.length).toString()
             }
 
-            if(NazwaPliku.endsWith(".baza")==false){
+            if(NazwaPlikuOtwieranego.endsWith(".baza")==false){
                 Toast.makeText(applicationContext,"Nie jest to plik typu .baza",Toast.LENGTH_LONG).show()
             }else{
                 Good=true
@@ -817,15 +833,6 @@ class MainActivity : AppCompatActivity() {
                 var DManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
                 MyDownloadId = DManager.enqueue(request)
 
-                /*ZaladujRekordDoBazy("UØAdamØAleksanderØNowakØKowalØIgnacyØKatarzynaØ27.08.2018Ø31235836438ØMężczyznaØ3AØkółko teatralneØ")
-            ZaladujRekordDoBazy("UØEwaØMariannaØNowakØZielonaØKazimierzØElaØ26.12.2016Ø12348626499ØKobietaØ3BØkółko teatralne;kącik kulinarnyØ")
-            ZaladujRekordDoBazy("UØAnnaØKatarzynaØKwiatkowskaØØJanuszØElaØ07.07.2014Ø21356713254ØKobietaØ3BØkółko teatralneØ")
-            ZaladujRekordDoBazy("UØMariannaØEwelinaØCegielskaØØZdzisławØØ25.03.2013Ø65497612376ØKobietaØ3BØkącik kulinarnyØ")
-            ZaladujRekordDoBazy("NØDawidØCØBrodziczØWisielskiØJanØElaØ06.10.2020Ø45632187621ØMężczyznaØ3AØAngielskiØPoniedziałek 9.00Ø10.07.2019Ø")
-            ZaladujRekordDoBazy("NØKubaØCØMedzielØBombaØFilipØFilipØ25.09.2019Ø23445789233ØMężczyznaØ3BØPolskiØWtorek 10.00Ø03.07.2017Ø")
-            ZaladujRekordDoBazy("PØKazimierzØØWolnyØØØØ25.09.2019Ø12345678911ØMężczyznaØPelenØWoźnyØ05.04.2021Ø")
-            */
-                //Update_Widok(TableUczen, TableNauczyciel, TablePracownik)
             }
         }
 
@@ -849,6 +856,7 @@ class MainActivity : AppCompatActivity() {
                 var id=p1?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
                 if(id==MyDownloadId){
                     Toast.makeText(applicationContext,"Pobrano plik!",Toast.LENGTH_LONG).show()
+                    ZaladujPlik()
                 }
             }
         }
