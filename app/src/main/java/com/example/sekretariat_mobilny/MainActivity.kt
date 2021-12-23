@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity() {
         var TableNauczyciel: kotlin.Array<Nauczyciel?> = arrayOfNulls(0)
         var TablePracownik: kotlin.Array<Pracownik?> = arrayOfNulls(0)
 
-        fun Update_Widok(TempUczen: kotlin.Array<Uczen?>,TempNauczyciel: kotlin.Array<Nauczyciel?> ,TempPracownik: kotlin.Array<Pracownik?> )
+        fun Update_Widok(TempUczen: kotlin.Array<Uczen?>,TempNauczyciel: kotlin.Array<Nauczyciel?> ,TempPracownik: kotlin.Array<Pracownik?> )//funkcja wyswietlajaca wszystko w text view, taka sama jak w aplikacji desktopowej
         {
             TextView_Widok.text = "";
             if (TempUczen.size <= 0) {TextView_Widok.text = TextView_Widok.text.toString() + "Brak rekordów Uczniów\n";}else{
@@ -176,7 +176,7 @@ class MainActivity : AppCompatActivity() {
                 }}
         }
 
-        fun Sortuj(UczenTemp: Array<Uczen?>,NauczycielTemp: Array<Nauczyciel?> ,PracownikTemp: Array<Pracownik?>) //funkcja sortująca
+        fun Sortuj(UczenTemp: Array<Uczen?>,NauczycielTemp: Array<Nauczyciel?> ,PracownikTemp: Array<Pracownik?>) //funkcja sortująca taka sama jak w aplikacji desktopowej
         {
             TextView_Widok.text =""
             var WybranePole: Int= Spinner_SortujPoPolu.selectedItemPosition
@@ -469,7 +469,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        fun Szukaj()
+        fun Szukaj()//funkcja szukajaca taka sama jak w aplikacji desktopowej
         {
             var SelectedSearchIndex : Int = Spinner_SzukajPoPolu.selectedItemPosition
             var SelectedSearchTypeIndex : Int = Spinner_SzukajSposob.selectedItemPosition
@@ -610,7 +610,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        fun ZaladujRekordDoBazy(linia: String)
+        fun ZaladujRekordDoBazy(linia: String)//funkcja ladujaca do bazy taka sama jak w aplikacji desktopowej
         {
             //wszystkie dzialaja na tej samej zasadzie, roznią się jednyie iloscią pól które muszą prowadzic i do której tabeli
             //najpierw sprawdza do której tabeli idzie U, N, P
@@ -764,7 +764,7 @@ class MainActivity : AppCompatActivity() {
                 Spinner_SzukajSposob.isEnabled=false
                 FiltrTextBox.isEnabled=false
             }
-        }
+        } //Aktywuje i dezaktuwuje pola w zależności od tego czy sortowanie i szukanie jest zaznaczone
         CheckSortuj.setOnClickListener{
             if(CheckSortuj.isChecked){
                 RadioGroup.isEnabled=true
@@ -782,6 +782,7 @@ class MainActivity : AppCompatActivity() {
         Button_OdswiezWidok.setOnClickListener {
             Update_Widok(TableUczen,TableNauczyciel,TablePracownik)
         }
+
         Button_Gotowe.setOnClickListener {
             if(CheckSzukaj.isChecked){
                 Szukaj()
@@ -792,9 +793,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
         fun ZaladujPlik(){
-            TextView_Widok.text=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path + File.separator + NazwaPlikuOtwieranego
+            //Tutaj jest tworzony plik który bedzie otwierany
+            //I jest sprawdzane czy właściwie znajduje się on w folderze pobrane
+            //i potem linia po lini jest wprowadzany do programu
             val File = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path, NazwaPlikuOtwieranego)
             if(File.exists()) {
+                TableUczen = arrayOfNulls(0)
+                TableNauczyciel = arrayOfNulls(0)
+                TablePracownik= arrayOfNulls(0)
                 File.forEachLine { ZaladujRekordDoBazy(it) }
                 Update_Widok(TableUczen, TableNauczyciel, TablePracownik)
             }else{
@@ -802,6 +808,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         fun OtworzPlik(URL:String){
+            //Najpierw sprawdza czy URL jest właściwie URL a nie poprstu jakimś textem
+            //Potem sprawdza czy plik który jest to pobrania a potem otwarcia jest poprawnego rozszerzenia (.baza)
             var Good :Boolean=false
             if(!URLUtil.isValidUrl(URL)){
                 Toast.makeText(applicationContext,"Nie poprawne URL",Toast.LENGTH_LONG).show()
@@ -815,7 +823,8 @@ class MainActivity : AppCompatActivity() {
             }else{
                 Good=true
             }
-
+            //Gdy wszystko jest okej rozpoczyna pobieranie
+            //Broadcast jest wywoływany gdy plik się pobrał i wywołuje fukncje "ZaladujPlik"
             if(Good){
                 var request = DownloadManager.Request(Uri.parse(URL))
                         .setTitle(NazwaPlikuOtwieranego)
@@ -831,6 +840,9 @@ class MainActivity : AppCompatActivity() {
 
         Button_OtworzPlik.setOnClickListener {
             fun showdialog(){
+                //Tworzy okienko proszące żeby użytkownik wpisał URL i potem wywołuje funkcje "OtworzPlik", ktora jest powyzej
+                //https://raw.githubusercontent.com/RedstoneCoFoxy/Sekretariat_Mobilny/master/BazaZRekordami.baza
+                // Na 100% powinnien działać ten link
                 var Url:String=""
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this).setTitle("Podaj URL")
                 val input = EditText(this)
