@@ -792,12 +792,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
         fun ZaladujPlik(){
-            TextView_Widok.text=Environment.DIRECTORY_DOWNLOADS + File.separator + NazwaPlikuOtwieranego
-            val File = File(Environment.DIRECTORY_DOWNLOADS, NazwaPlikuOtwieranego)
+            TextView_Widok.text=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path + File.separator + NazwaPlikuOtwieranego
+            val File = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path, NazwaPlikuOtwieranego)
             if(File.exists()) {
                 File.forEachLine { ZaladujRekordDoBazy(it) }
+                Update_Widok(TableUczen, TableNauczyciel, TablePracownik)
+            }else{
+                TextView_Widok.text="Error podczas ładowania "+Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).path + java.io.File.separator + NazwaPlikuOtwieranego
             }
-            //Update_Widok(TableUczen, TableNauczyciel, TablePracownik)
         }
         fun OtworzPlik(URL:String){
             var Good :Boolean=false
@@ -820,7 +822,7 @@ class MainActivity : AppCompatActivity() {
                         .setDescription("Plik do sekretariatu mobilnego")
                         .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
                         .setAllowedOverMetered(true)
-                        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "baza.baza")
+                        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, NazwaPlikuOtwieranego)
                 var DManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
                 MyDownloadId = DManager.enqueue(request)
 
